@@ -20,7 +20,7 @@ public class PokedexCamel {
                 from("direct:rota-pokeapi").
                         routeId("rota-pokeapi").
                         setProperty("pokemonName", xpath("/name/text()")).
-                        log("Buscando dados do pokemon: ${property.pokemonName}").
+                        log("Buscando dados do Pokemon: ${property.pokemonName}").
                         setHeader(Exchange.HTTP_METHOD, HttpMethods.GET).
                         setHeader(Exchange.HTTP_PATH, simple("${property.pokemonName}")).
                         to("http4://pokeapi.co/api/v2/pokemon");
